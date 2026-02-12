@@ -261,7 +261,19 @@
         </form>
     </div>
 
+    <!-- Load jsPDF from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        // Verify jsPDF loaded
+        window.addEventListener('load', function() {
+            if (!window.jspdf) {
+                console.error('jsPDF failed to load from CDN');
+                alert('PDF library failed to load. Please check your internet connection and refresh the page.');
+            } else {
+                console.log('jsPDF loaded successfully');
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
