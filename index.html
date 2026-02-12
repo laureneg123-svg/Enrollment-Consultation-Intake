@@ -1,26 +1,267 @@
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Consultation Request - Waystar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg width="150" height="40" viewBox="0 0 150 40">
+                    <text x="0" y="30" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#FF6B35">WAYSTAR</text>
+                </svg>
+            </div>
+            <h1>Enrollment Consultation</h1>
+            <p class="subtitle">Request for short term Enrollment Consultant</p>
+        </header>
 
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
+        <form id="enrollmentForm">
+            <!-- ACCOUNT INFORMATION -->
+            <section class="form-section">
+                <h2 class="section-header">Account Information</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="account_name">Name <span class="required">*</span></label>
+                        <input type="text" id="account_name" name="account_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cust_id">Cust ID <span class="required">*</span></label>
+                        <input type="text" id="cust_id" name="cust_id" required>
+                    </div>
+                </div>
 
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+                <div class="form-row">
+                    <div class="form-group checkbox-group">
+                        <label class="group-label">Applications: <span class="hint">(select all that apply)</span> <span class="required">*</span></label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="applications" value="Prof Claims" class="required-group">
+                                Prof Claims
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="applications" value="Inst Claims" class="required-group">
+                                Inst Claims
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="applications" value="Remits" class="required-group">
+                                Remits
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="applications" value="Eligibility" class="required-group">
+                                Eligibility
+                            </label>
+                        </div>
+                    </div>
 
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+                    <div class="form-group">
+                        <label class="group-label">Does this account have any of the following?</label>
+                        
+                        <div class="radio-group">
+                            <label class="radio-label-inline">EOB Conversion:</label>
+                            <label class="radio-label">
+                                <input type="radio" name="eob_conversion" value="Y">
+                                Y
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="eob_conversion" value="N">
+                                N
+                            </label>
+                        </div>
 
-# Temporary files
-*.tmp
-*.temp
+                        <div class="radio-group">
+                            <label class="radio-label-inline">Rebatcher:</label>
+                            <label class="radio-label">
+                                <input type="radio" name="rebatcher" value="Y" id="rebatcher_yes">
+                                Y
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="rebatcher" value="N">
+                                N
+                            </label>
+                        </div>
+
+                        <div class="conditional-field" id="rebatcher_custids_field" style="display: none;">
+                            <label for="rebatcher_custids">(if Yes, specify which custID(s))</label>
+                            <input type="text" id="rebatcher_custids" name="rebatcher_custids">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="domain_child_accounts">
+                        Is this a domain with multiple child accounts? 
+                        <span class="hint">If yes, specify which child accounts should be included or leave blank for all. Y/N</span>
+                    </label>
+                    <textarea id="domain_child_accounts" name="domain_child_accounts" rows="2"></textarea>
+                </div>
+            </section>
+
+            <!-- CLIENT CONTACT INFORMATION -->
+            <section class="form-section">
+                <h2 class="section-header">Client Contact Information</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact_full_name">Full Name <span class="required">*</span></label>
+                        <input type="text" id="contact_full_name" name="contact_full_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact_phone">Phone <span class="required">*</span></label>
+                        <input type="tel" id="contact_phone" name="contact_phone" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact_email">Email <span class="required">*</span></label>
+                        <input type="email" id="contact_email" name="contact_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact_title">Title <span class="required">*</span></label>
+                        <input type="text" id="contact_title" name="contact_title" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="group-label">Is this contact the same as the Enrollment Contact? <span class="required">*</span></label>
+                    <div class="radio-group-inline">
+                        <label class="radio-label">
+                            <input type="radio" name="same_enrollment_contact" value="Y" required>
+                            Y
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="same_enrollment_contact" value="N" id="same_contact_no">
+                            N
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="same_enrollment_contact" value="Im not sure">
+                            I'm not sure
+                        </label>
+                    </div>
+                </div>
+
+                <div class="conditional-field" id="enrollment_contact_field" style="display: none;">
+                    <label for="enrollment_contact_details">(If No please list the Enrollment Contact as well)</label>
+                    <textarea id="enrollment_contact_details" name="enrollment_contact_details" rows="3"></textarea>
+                </div>
+            </section>
+
+            <!-- ADDITIONAL CONSULTATION INFORMATION -->
+            <section class="form-section">
+                <h2 class="section-header">Additional Consultation Information</h2>
+                
+                <div class="form-row">
+                    <div class="form-group checkbox-group">
+                        <label class="group-label">Type of Consultation <span class="required">*</span></label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="consultation_type" value="General audit of existing enrollments" class="required-group-consult">
+                            General audit of existing enrollments
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="consultation_type" value="Assistance with new provider or add on provider" class="required-group-consult">
+                            Assistance with new provider or add on provider
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="consultation_type" value="Other" id="consult_other" class="required-group-consult">
+                            Other (specify below)
+                        </label>
+                        
+                        <div class="conditional-field" id="consult_other_field" style="display: none;">
+                            <textarea id="consult_other_specify" name="consult_other_specify" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="group-label">Estimated length of Project <span class="required">*</span></label>
+                        <label class="radio-label">
+                            <input type="radio" name="project_length" value="2 - 4 weeks" required>
+                            2 - 4 weeks
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="project_length" value="4 - 6 weeks">
+                            4 - 6 weeks
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="project_length" value="≥ 8 weeks">
+                            ≥ 8 weeks
+                        </label>
+                        <div style="margin-top: 8px;">
+                            <input type="text" id="length_custom" name="length_custom" placeholder="Or specify custom length">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="preferred_start_date">Preferred Start Date <span class="required">*</span></label>
+                        <input type="date" id="preferred_start_date" name="preferred_start_date" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mrr_billing_npis">
+                        MRR for clearinghouse services only <span class="hint">or</span> # of billing NPIs 
+                        <span class="hint">(to determine scope):</span>
+                    </label>
+                    <textarea id="mrr_billing_npis" name="mrr_billing_npis" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="priority_payers">
+                        List any specific enrollment functions or priority payer(s) that are of top concern or focus
+                    </label>
+                    <textarea id="priority_payers" name="priority_payers" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="other_info">
+                        Other info to include: 
+                        <span class="hint">Key details on outstanding enrollment issues, client experience concerns, 
+                        communication preferences (email/phone/cases), and any special client considerations.</span>
+                    </label>
+                    <textarea id="other_info" name="other_info" rows="5"></textarea>
+                </div>
+            </section>
+
+            <!-- WAYSTAR REPRESENTATIVES -->
+            <section class="form-section">
+                <h2 class="section-header">Waystar Account Representatives</h2>
+                <p class="hint">Leave blank for none</p>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="csm">CSM:</label>
+                        <input type="text" id="csm" name="csm">
+                    </div>
+                    <div class="form-group">
+                        <label for="ssa">SSA:</label>
+                        <input type="text" id="ssa" name="ssa">
+                    </div>
+                    <div class="form-group">
+                        <label for="sales_rep">Sales Rep:</label>
+                        <input type="text" id="sales_rep" name="sales_rep">
+                    </div>
+                </div>
+            </section>
+
+            <!-- SUBMIT BUTTON -->
+            <div class="submit-section">
+                <button type="submit" class="submit-btn">Generate PDF</button>
+            </div>
+
+            <!-- NEXT STEPS INFO -->
+            <div class="info-box">
+                <p><strong>Next Steps:</strong> An Enrollment leader on the Support team will review this request 
+                for approval. If approved, an enrollment resource will be assigned and a project timeline will be agreed upon.</p>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
