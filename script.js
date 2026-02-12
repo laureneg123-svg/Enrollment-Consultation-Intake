@@ -52,6 +52,18 @@ function setupConditionalFields() {
         });
     });
     
+    // Child accounts dropdown
+    const domainDropdown = document.getElementById('domain_multiple_child_accounts');
+    const childAccountsField = document.getElementById('child_accounts_field');
+    
+    domainDropdown.addEventListener('change', function() {
+        if (this.value === 'Yes') {
+            childAccountsField.style.display = 'block';
+        } else {
+            childAccountsField.style.display = 'none';
+        }
+    });
+    
     // Consultation type "Other" field
     const consultOther = document.getElementById('consult_other');
     const consultOtherField = document.getElementById('consult_other_field');
@@ -165,14 +177,16 @@ function generatePDF() {
         }
     }
     
-    if (formData.domain_child_accounts) {
-        doc.text('Domain/Child Accounts:', leftMargin, y);
+    if (formData.domain_multiple_child_accounts) {
+        doc.text(`Domain with Multiple Child Accounts: ${formData.domain_multiple_child_accounts}`, leftMargin, y);
         y += lineHeight;
-        doc.setFontSize(9);
-        const domainLines = doc.splitTextToSize(formData.domain_child_accounts, rightMargin - leftMargin - 5);
-        doc.text(domainLines, leftMargin + 5, y);
-        y += (domainLines.length * lineHeight);
-        doc.setFontSize(10);
+        if (formData.domain_multiple_child_accounts === 'Yes' && formData.child_accounts_list) {
+            doc.setFontSize(9);
+            const childAccountLines = doc.splitTextToSize(formData.child_accounts_list, rightMargin - leftMargin - 5);
+            doc.text(childAccountLines, leftMargin + 5, y);
+            y += (childAccountLines.length * lineHeight);
+            doc.setFontSize(10);
+        }
     }
     
     y += 5;
@@ -393,7 +407,8 @@ function getFormData() {
         eob_conversion: getRadioValue('eob_conversion'),
         rebatcher: getRadioValue('rebatcher'),
         rebatcher_custids: document.getElementById('rebatcher_custids').value,
-        domain_child_accounts: document.getElementById('domain_child_accounts').value,
+        domain_multiple_child_accounts: document.getElementById('domain_multiple_child_accounts').value,
+        child_accounts_list: document.getElementById('child_accounts_list').value,
         
         contact_full_name: document.getElementById('contact_full_name').value,
         contact_phone: document.getElementById('contact_phone').value,
