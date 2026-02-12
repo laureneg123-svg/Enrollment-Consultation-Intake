@@ -92,11 +92,21 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="domain_child_accounts">
-                        Is this a domain with multiple child accounts? 
-                        <span class="hint">If yes, specify which child accounts should be included or leave blank for all. Y/N</span>
+                    <label for="domain_multiple_child_accounts">
+                        Is this a domain with multiple child accounts?
                     </label>
-                    <textarea id="domain_child_accounts" name="domain_child_accounts" rows="2"></textarea>
+                    <select id="domain_multiple_child_accounts" name="domain_multiple_child_accounts">
+                        <option value="">Select...</option>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <div class="conditional-field" id="child_accounts_field" style="display: none;">
+                    <label for="child_accounts_list">
+                        Specify which child accounts should be included (or leave blank for all)
+                    </label>
+                    <textarea id="child_accounts_list" name="child_accounts_list" rows="3" placeholder="Enter child account names..."></textarea>
                 </div>
             </section>
 
@@ -207,14 +217,14 @@
                         MRR for clearinghouse services only <span class="hint">or</span> # of billing NPIs 
                         <span class="hint">(to determine scope):</span>
                     </label>
-                    <textarea id="mrr_billing_npis" name="mrr_billing_npis" rows="3"></textarea>
+                    <textarea id="mrr_billing_npis" name="mrr_billing_npis" rows="6"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="priority_payers">
                         List any specific enrollment functions or priority payer(s) that are of top concern or focus
                     </label>
-                    <textarea id="priority_payers" name="priority_payers" rows="4"></textarea>
+                    <textarea id="priority_payers" name="priority_payers" rows="8"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -223,7 +233,7 @@
                         <span class="hint">Key details on outstanding enrollment issues, client experience concerns, 
                         communication preferences (email/phone/cases), and any special client considerations.</span>
                     </label>
-                    <textarea id="other_info" name="other_info" rows="5"></textarea>
+                    <textarea id="other_info" name="other_info" rows="10"></textarea>
                 </div>
             </section>
 
