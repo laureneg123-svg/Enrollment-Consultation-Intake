@@ -1,0 +1,365 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e8e8e8;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Header Styles */
+.header {
+    background: white;
+    padding: 30px 40px;
+    border-bottom: 3px solid #FF6B35;
+}
+
+.logo {
+    margin-bottom: 15px;
+}
+
+.header h1 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.header .subtitle {
+    color: #666;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+/* Form Sections */
+.form-section {
+    padding: 40px 50px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.section-header {
+    background: linear-gradient(135deg, #6AAFB0 0%, #5A9FA0 100%);
+    color: white;
+    padding: 12px 20px;
+    margin: -40px -50px 30px -50px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Form Layout */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.form-row:last-child {
+    margin-bottom: 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.form-group.checkbox-group {
+    grid-column: span 2;
+}
+
+/* Labels */
+label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+.group-label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 15px;
+}
+
+.required {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.hint {
+    color: #7f8c8d;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 13px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    padding: 10px 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #6AAFB0;
+    box-shadow: 0 0 0 3px rgba(106, 175, 176, 0.1);
+}
+
+select {
+    cursor: pointer;
+    background-color: white;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* Checkboxes and Radio Buttons */
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.checkbox-label,
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 400;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.checkbox-label:hover,
+.radio-label:hover {
+    background-color: #f8f9fa;
+}
+
+.checkbox-label input[type="checkbox"],
+.radio-label input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.radio-label-inline {
+    font-weight: 500;
+    margin-right: 15px;
+    color: #2c3e50;
+}
+
+.radio-group .radio-label {
+    margin-right: 15px;
+    padding: 4px 8px;
+}
+
+.radio-group-inline {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Conditional Fields */
+.conditional-field {
+    margin-top: 12px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-left: 3px solid #6AAFB0;
+    border-radius: 4px;
+}
+
+.conditional-field label {
+    color: #666;
+    font-size: 13px;
+}
+
+/* Submit Section */
+.submit-section {
+    padding: 30px 40px;
+    text-align: center;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #FF6B35 0%, #F05A24 100%);
+    color: white;
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.5px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Info Box */
+.info-box {
+    background-color: #e8f4f8;
+    border-left: 4px solid #6AAFB0;
+    padding: 20px;
+    margin: 0 40px 30px 40px;
+    border-radius: 4px;
+}
+
+.info-box p {
+    color: #2c3e50;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.info-box strong {
+    color: #1a5f7a;
+}
+
+/* Validation Styles */
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+    border-color: #e74c3c;
+}
+
+input:valid:not(:placeholder-shown),
+textarea:valid:not(:placeholder-shown) {
+    border-color: #27ae60;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 20px;
+    }
+
+    .form-section {
+        padding: 25px 20px;
+    }
+
+    .section-header {
+        margin: -25px -20px 20px -20px;
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .form-group.checkbox-group {
+        grid-column: span 1;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .submit-section {
+        padding: 20px;
+    }
+
+    .info-box {
+        margin: 0 20px 20px 20px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+    }
+
+    .container {
+        box-shadow: none;
+    }
+
+    .submit-section {
+        display: none;
+    }
+}
+
+/* Loading State */
+.submit-btn.loading {
+    background: #95a5a6;
+    cursor: not-allowed;
+    position: relative;
+}
+
+.submit-btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
