@@ -84,6 +84,11 @@ body {
     margin-bottom: 25px;
 }
 
+/* Full width form groups (not in form-row) */
+.form-section > .form-group {
+    width: 100%;
+}
+
 .form-group.checkbox-group {
     grid-column: span 2;
 }
