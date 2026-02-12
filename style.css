@@ -87,6 +87,15 @@ body {
 /* Full width form groups (not in form-row) */
 .form-section > .form-group {
     width: 100%;
+    max-width: 100%;  /* ← THIS IS MISSING */
+}
+
+/* Inputs in direct form-groups should be full width */
+.form-section > .form-group input[type="text"],
+.form-section > .form-group input[type="date"],
+.form-section > .form-group select,
+.form-section > .form-group textarea {
+    width: 100%;
     max-width: 100%;
 }
 
@@ -143,7 +152,7 @@ textarea {
     font-size: 14px;
     font-family: inherit;
     transition: border-color 0.2s, box-shadow 0.2s;
-    width: 100%;
+    width: 100%;  /* ← THIS LINE IS MISSING IN YOUR CURRENT VERSION */
 }
 
 input[type="text"]:focus,
