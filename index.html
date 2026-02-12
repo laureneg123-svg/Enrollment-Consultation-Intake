@@ -164,52 +164,48 @@
             <section class="form-section">
                 <h2 class="section-header">Additional Consultation Information</h2>
                 
-                <div class="form-row">
-                    <div class="form-group checkbox-group">
-                        <label class="group-label">Type of Consultation <span class="required">*</span></label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="consultation_type" value="General audit of existing enrollments" class="required-group-consult">
-                            General audit of existing enrollments
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="consultation_type" value="Assistance with new provider or add on provider" class="required-group-consult">
-                            Assistance with new provider or add on provider
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="consultation_type" value="Other" id="consult_other" class="required-group-consult">
-                            Other (specify below)
-                        </label>
-                        
-                        <div class="conditional-field" id="consult_other_field" style="display: none;">
-                            <textarea id="consult_other_specify" name="consult_other_specify" rows="3"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="group-label">Estimated length of Project <span class="required">*</span></label>
-                        <label class="radio-label">
-                            <input type="radio" name="project_length" value="2 - 4 weeks" required>
-                            2 - 4 weeks
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="project_length" value="4 - 6 weeks">
-                            4 - 6 weeks
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="project_length" value="≥ 8 weeks">
-                            ≥ 8 weeks
-                        </label>
-                        <div style="margin-top: 8px;">
-                            <input type="text" id="length_custom" name="length_custom" placeholder="Or specify custom length">
-                        </div>
+                <div class="form-group checkbox-group">
+                    <label class="group-label">Type of Consultation <span class="required">*</span></label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="consultation_type" value="General audit of existing enrollments" class="required-group-consult">
+                        General audit of existing enrollments
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="consultation_type" value="Assistance with new provider or add on provider" class="required-group-consult">
+                        Assistance with new provider or add on provider
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="consultation_type" value="Other" id="consult_other" class="required-group-consult">
+                        Other (specify below)
+                    </label>
+                    
+                    <div class="conditional-field" id="consult_other_field" style="display: none;">
+                        <textarea id="consult_other_specify" name="consult_other_specify" rows="3"></textarea>
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="preferred_start_date">Preferred Start Date <span class="required">*</span></label>
-                        <input type="date" id="preferred_start_date" name="preferred_start_date" required>
+                <div class="form-group">
+                    <label class="group-label">Estimated length of Project <span class="required">*</span></label>
+                    <label class="radio-label">
+                        <input type="radio" name="project_length" value="2 - 4 weeks" required>
+                        2 - 4 weeks
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="project_length" value="4 - 6 weeks">
+                        4 - 6 weeks
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="project_length" value="≥ 8 weeks">
+                        ≥ 8 weeks
+                    </label>
+                    <div style="margin-top: 8px;">
+                        <input type="text" id="length_custom" name="length_custom" placeholder="Or specify custom length">
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="preferred_start_date">Preferred Start Date <span class="required">*</span></label>
+                    <input type="date" id="preferred_start_date" name="preferred_start_date" required>
                 </div>
 
                 <div class="form-group">
@@ -265,8 +261,8 @@
 
             <!-- NEXT STEPS INFO -->
             <div class="info-box">
-                <p><strong>Next Steps:</strong> An Enrollment leader on the Support team will review this request 
-                for approval. If approved, an enrollment resource will be assigned and a project timeline will be agreed upon.</p>
+                <p><strong>Next Steps:</strong> Create a Salesforce case with the category "Enrollment - Consultation Request" an Enrollment leader will review this request 
+                for approval. If approved, an enrollment resource will be assigned and a project timeline will be agreed upon. Reach out to Lauren Goodwin with questions.</p>
             </div>
         </form>
     </div>
